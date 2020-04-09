@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <div id="divForm" name="divConteudoOverride">
+        <h:form id="formTabela" prependId="false">
+            <p:dataTable id="tabelaOM"
+                         var="override" 
+                         value="#{beanOM.listaResultado}"
+                         widgetVar="widgetOverrides" 
+                         emptyMessage="Nenhuma inibição encontrada para estes critérios."
+                         filteredValue="#{override.listaFiltrada}"
+                         scrollable="true"
+                         scrollHeight="650"
+                         resizableColumns="true">
+                <p:column id="colunaSelecionado" headerText="" width="30" >
+                    <h:selectBooleanCheckbox />
+                </p:column>
+                <p:column id="headerTag" 
+                          headerText="Tag"
+                          filterBy="#{override.tag}"
+                          filterMatchMode="contains">
+                    <h:outputText  value="#{override.tag}"/>
+                </p:column>
+                <p:column id="colunaHoraInibicao" headerText="Horário da Inibição">
+                    <h:outputText value="#{override.tempoAtivadoStr}"/>
+                </p:column>
+
+                <p:column id="colunaMotivoInibicao" headerText="Motivo da Inibição">
+                    <h:outputText value="#{override.motivoAtivadoStr}"/>
+                </p:column>
+
+                <p:column id="colunaTempoOverride" headerText="Tempo em Override">
+                    <h:outputText value="#{override.tempoOverrideAtivado}"/>
+                </p:column>
+
+                <p:column id="colunaHorarioNormalizacao" headerText="Horário da Normalização">
+                    <h:outputText value="#{override.tempoDesativadoStr}"/>
+                </p:column>
+
+                <p:column id="colunaMotivoNormalizacao" headerText="Motivo da Normalização">
+                    <h:outputText value="#{override.motivoDesativar}"/>
+                </p:column>
+                <p:column id="colunaAtivos" headerText="Status" > 
+                    <h:outputText value="#{override.OMAtivoStr}"/>
+                </p:column>
+            </p:dataTable> 
+        </h:form>
+    </div>
+</ui:composition>
+

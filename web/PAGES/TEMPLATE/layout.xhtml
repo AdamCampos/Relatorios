@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <!--Página modelo (template) para as demais-->
+
+    <h:head>
+        <title>RELATÓRIOS DE BY-PASS</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <h:outputStylesheet library="CSS" name="template.css"/>
+        <h:outputScript library="JS" name="scriptOverride.js"/> 
+    </h:head>
+    <!--Define o corpo da página principal-->
+    <h:body id="body">
+
+        <div id="pagina" class="clsBloco">
+            <div id="divMenu">
+                <ui:insert name="conteudoMenu">
+                </ui:insert>
+            </div>
+            <div id="divCorpo" >
+                <ui:insert name="conteudoCorpo">
+                </ui:insert>
+            </div>
+            <ui:insert name="conteudoRodape">
+            </ui:insert>
+        </div>
+    </h:body>
+</html>

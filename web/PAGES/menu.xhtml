@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <div class="clsBloco" id="menu">
+        <!--Painel dos botões-->
+        <p:panel id="painelHeader">
+            <h:graphicImage id="logo" value="/IMGS/logo2.jpg"/>
+            <h:outputText class ="clsTopico" id="tituloHeader" value="Relatório de Override"/><br/>
+            <h:outputText class="clsTopico" id="contador" value="Total de #{beanOM.listaResultado.size()} inibições."/>
+            <br/>
+            <h:form id="formRadio">
+                <h:selectOneRadio value="#{override.radioSelected}" onclick="atualizaMensagemOverride(this)">
+                    <f:selectItem itemValue="OM" itemLabel="Override de Manutenção" id="rbOMA"/>
+                    <f:selectItem itemValue="OO" itemLabel="Override de Operação" id="rbOOA"/>
+                    <f:ajax immediate="false" execute="@this" render="@all"/>
+                </h:selectOneRadio>
+            </h:form>
+            <p:commandButton onclick="filtroAtivo();" value="Ativos" ajax="true"/>
+        </p:panel>
+    </div>
+</ui:composition>
